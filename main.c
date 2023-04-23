@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/23 16:20:26 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:42:22 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,78 @@ void check_players(char **map, int len)
 	if (k != 1)
 		ft_error("player error\n");
 }
+void check_exit(char **map, int len)
+{
+	int	i;
+	int k;
+	int	j;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while(i < len)
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'E')
+				k++;
+			j++;
+		}
+		i++;
+	}
+	if (k != 1)
+		ft_error("Exit error\n");
+}
+void check_collectible(char **map, int len)
+{
+	int	i;
+	int k;
+	int	j;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while(i < len)
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				k++;
+			j++;
+		}
+		i++;
+	}
+	if (k < 1)
+		ft_error("collectible error\n");
+}
+void check_element_of_map(char **map, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while(i < len)
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E' && map[i][j] != '1' && map[i][j] != '0' && map[i][j] != '\n')
+				ft_error("map error\n");;
+			j++;
+		}
+		i++;
+	}
+}
 void	map_check(char **map, int len)
 {
+	check_element_of_map(map, len);
 	wall(map, len);
 	check_players(map, len);
+	check_exit(map, len);
+	check_collectible(map, len);
 }
  
 int	main(int argc, char **argv)
