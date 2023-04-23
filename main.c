@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/23 15:57:27 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:06:35 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,24 @@ void	check_map(t_list *map)
 		map = map->next;
 	}
 }
-void wall(char **map)
+void wall(char **map, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while(map[i][j])
+	while(i < len)
 	{
 		j = 0;
 		while (map[i][j] && map[i][j] != '\n')
 		{
 			if(map[0][j] != '1')
 				ft_error("////no wall\n");
+			if(map[i][j] != '1')
+				ft_error("////no wall\n");
 			if(map[0][0] != '1')
 				ft_error("***no wall\n");
-			printf("%c////// %d ----- %d  ***\n", map[i][ft_strnline(map[i]) - 1], i, j);
 			if(map[i][ft_strnline(map[i]) - 1] != '1')
 				ft_error("---no wall%c\n");
 			j++;
@@ -55,9 +56,9 @@ void wall(char **map)
 	}
 }
 
-void	map_check(char **map)
+void	map_check(char **map, int len)
 {
-	wall(map);
+	wall(map, len);
 	// check_five_carcter(map);
 }
  
@@ -94,7 +95,7 @@ int	main(int argc, char **argv)
 			map = map->next;
 			i++;
 		}
-		map_check(my_map);
+		map_check(my_map, i);
 		close(fd);
 	}
 }
