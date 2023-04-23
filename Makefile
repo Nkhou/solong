@@ -9,6 +9,8 @@ SRC = \
 		get_next_line.c \
 		get_next_line_utils.c\
 		ft_lstsize.c\
+		ft_strnline.c\
+		ft_putstr.c\
 		
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)

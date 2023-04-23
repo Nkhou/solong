@@ -6,13 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:59:46 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/03 15:08:22 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/20 23:31:48 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_strdup( char *s1)
+char	*ft_strdup( char *s1)
 {
 	char	*c;
 	int		i;
