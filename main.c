@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/23 16:06:35 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:20:26 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void wall(char **map, int len)
 		{
 			if(map[0][j] != '1')
 				ft_error("////no wall\n");
-			if(map[i][j] != '1')
+			if(map[len - 1][j] != '1')
 				ft_error("////no wall\n");
 			if(map[0][0] != '1')
 				ft_error("***no wall\n");
@@ -55,11 +55,33 @@ void wall(char **map, int len)
 		i++;
 	}
 }
+void check_players(char **map, int len)
+{
+	int	i;
+	int k;
+	int	j;
 
+	i = 0;
+	j = 0;
+	k = 0;
+	while(i < len)
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'P')
+				k++;
+			j++;
+		}
+		i++;
+	}
+	if (k != 1)
+		ft_error("player error\n");
+}
 void	map_check(char **map, int len)
 {
 	wall(map, len);
-	// check_five_carcter(map);
+	check_players(map, len);
 }
  
 int	main(int argc, char **argv)
