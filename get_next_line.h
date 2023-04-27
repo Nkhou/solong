@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/23 13:34:50 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:31:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int		ft_lstsize(t_list *lst);
 char	*ft_strdup(char *s1);
 int	ft_strnline( char *s);
 void	ft_putstr_fd(char *s, int fd);
+int	ft_strncmp(char *s1, char s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/25 19:17:34 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:54:29 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,23 @@ void ft_error(char *str)
 	ft_putstr_fd(str, 2);
 	exit(1);
 }
+void	check_last_element(char *map)
+{
+	int i;
 
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == '\n')
+			ft_error("map error \n");
+		i++;
+	}
+}
 void	check_map(t_list *map)
 {
 	int l;
 	l = ft_strnline(map->content);
+	check_last_element((ft_lstlast(map))->content);
 	map = map->next;
 	while (map)
 	{
@@ -78,29 +90,29 @@ void check_players(char **map, int len)
 	if (k != 1)
 		ft_error("player error\n");
 }
-void check_exit(char **map, int len)
-{
-	int	i;
-	int k;
-	int	j;
+// void check_exit(char **map, int len)
+// {
+// 	int	i;
+// 	int k;
+// 	int	j;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	while(i < len)
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == 'E')
-				k++;
-			j++;
-		}
-		i++;
-	}
-	if (k != 1)
-		ft_error("Exit error\n");
-}
+// 	i = 0;
+// 	j = 0;
+// 	k = 0;
+// 	while(i < len)
+// 	{
+// 		j = 0;
+// 		while (map[i][j])
+// 		{
+// 			if (map[i][j] == 'E')
+// 				k++;
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	if (k != 1)
+// 		ft_error("Exit error\n");
+// }
 void check_collectible(char **map, int len)
 {
 	int	i;
@@ -143,17 +155,27 @@ void check_element_of_map(char **map, int len)
 		i++;
 	}
 }
-void	valide_path(char **map, int i, int j)
+void	valide_path(char **map, int i, int j, int c)
 {
-	if (map[i][j] == '1' || map[i][j] == '2' || (map[i][j] != 'E'))
+	if (map[i][j] == '1' || (c == 0 && map[i][j] != 'E' ) || map[i][j] == '2' || map[i][j] == '\n')
 		return ;
 	else
 	{
+		if (map[i][j] != 'E' && c > 0)
+		{
+			if (map[i][j] == 'C')
+				c--;
+			if (map[i][j] !='\n')
+				map[i][j] = '2';
+			valide_path(map, i - 1, j, c);
+			valide_path(map, i + 1, j, c);
+			valide_path(map, i, j + 1, c);
+			valide_path(map, i , j - 1, c);
+		}
+		else
+		{
 			map[i][j] = '2';
-			valide_path(map, i - 1, j);
-			valide_path(map, i + 1, j);
-			valide_path(map, i, j + 1);
-			valide_path(map, i , j - 1);
+		}
 	}
 }
 void check_path(char **map, int len)
@@ -196,35 +218,62 @@ void make_one(char **map,int len)
 		i++;
 	}
 }
-void valide_path_exit(char **map, int i, int j, int len)
+// void valide_path_exit(char **map, int i, int j, int len)
+// {
+// 	if (map[i][j] == '1')
+// 		return ;
+// 	else
+// 	{
+// 		if (map[i][j] == 'E')
+// 		{
+// 			map[i][j] = '2';
+// 			i = 0;
+// 			i = 0;
+// 			while (map[i])
+// 			{
+// 				printf("%s\n", map[i]);
+// 				i++;
+// 			}
+// 			// make_one(map, len);
+// 			return ;
+// 		}
+// 		else
+// 		{
+// 			valide_path_exit(map, i - 1, j, len);
+// 			valide_path_exit(map, i + 1, j, len);
+// 			valide_path_exit(map, i, j + 1, len);
+// 			valide_path_exit(map, i , j - 1, len);
+// 		}
+// 	}
+// }
+int cmpt_c(char **map, int len)
 {
-	if (map[i][j] == '1')
-		return ;
-	else
+	int	i;
+	int	j;
+	int c;
+
+	i = 0;
+	j = 0;
+	c = 0;
+	while(i < len)
 	{
-		if (map[i][j] == 'E')
+		j = 0;
+		while (map[i][j])
 		{
-			map[i][j] = '2';
-			i = 0;
-			exit(1);
-			check_path(map, len);
-			// make_one(map, len);
-			return ;
+			if (map[i][j] == 'C')
+				c++;
+			j++;
 		}
-		else
-		{
-			valide_path_exit(map, i - 1, j, len);
-			valide_path_exit(map, i + 1, j, len);
-			valide_path_exit(map, i, j + 1, len);
-			valide_path_exit(map, i , j - 1, len);
-		}
+		i++;
 	}
+	return (c);
 }
 void path(char **map, int len)
 {
 	char **p;
 	int	i;
 	int	j;
+	int c;
 
 	i = 0;
 	p = map;
@@ -242,15 +291,15 @@ void path(char **map, int len)
 				break;
 		i++;
 	}
-	valide_path(p, i, j);
-	valide_path_exit(p, i, j, len);
+	c = cmpt_c(map, len);
+	valide_path(p, i, j, c);
+	check_path(p, len);
 }
 void	map_check(char **map, int len)
 {
 	check_element_of_map(map, len);
 	wall(map, len);
 	check_players(map, len);
-	check_exit(map, len);
 	check_collectible(map, len);
 	path(map, len);
 }

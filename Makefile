@@ -11,6 +11,7 @@ SRC = \
 		ft_lstsize.c\
 		ft_strnline.c\
 		ft_putstr.c\
+		ft_strcmp.c\
 		
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
