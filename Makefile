@@ -28,7 +28,7 @@ SRC = \
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
 $(NAME) : $(OBJCTS)
-		$(CC) $(OBJCTS) -o $@
+		$(CC) -lmlx -framework OpenGL -framework AppKit $^ -o $@
 %.o: %.c get_next_line.h
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
