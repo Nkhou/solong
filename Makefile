@@ -12,7 +12,19 @@ SRC = \
 		ft_strnline.c\
 		ft_putstr.c\
 		ft_strcmp.c\
-		
+		collectible.c\
+		ft_error.c\
+		ft_strlen.c\
+		map_check.c\
+		check_element_map.c\
+		check_last_element.c\
+	    palyer.c\
+		check_map.c\
+	    path.c\
+		check_path.c\
+		valide_path.c\
+		cmpt_c.c\
+	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
 $(NAME) : $(OBJCTS)

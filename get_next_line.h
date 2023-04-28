@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/27 13:31:02 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:34:45 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <fcntl.h>
 #include <stdio.h>
 #include <math.h>
+// #include <mlx.h>
 
 typedef struct s_list
 {
@@ -49,5 +50,16 @@ char	*ft_strdup(char *s1);
 int	ft_strnline( char *s);
 void	ft_putstr_fd(char *s, int fd);
 int	ft_strncmp(char *s1, char s2);
+void ft_error(char *str);
+void	check_last_element(char *map);
+void	check_map(t_list *map);
+void check_players(char **map, int len);
+void check_collectible(char **map, int len);
+void check_element_of_map(char **map, int len);
+void	valide_path(char **map, int i, int j, int c);
+void check_path(char **map, int len);
+int cmpt_c(char **map, int len);
+void path(char **map, int len);
+void	map_check(char **map, int len);
 
 #endif

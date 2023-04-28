@@ -6,23 +6,23 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 18:59:17 by nkhoudro          #+#    #+#             */
-/*   Updated: 2022/11/22 22:39:04 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:05:40 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen( char *s)
-{
-	size_t	i;
+// size_t	ft_strlen( char *s)
+// {
+// 	size_t	i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	if (!s)
+// 		return (0);
+// 	while (s[i])
+// 		i++;
+// 	return (i);
+// }
 
 static void	ft_bzero(void *s, size_t n)
 {
