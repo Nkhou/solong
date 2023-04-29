@@ -6,15 +6,15 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 22:24:06 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/05 00:03:43 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:59:50 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen( char *s)
+int	ft_strlen( char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])

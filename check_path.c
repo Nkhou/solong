@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:43:18 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 10:43:37 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:07:38 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void check_path(char **map, int len)
 		{
 			if (map[i][j] != '1' && map[i][j] != '\n' && map[i][j] != '2')
 			{
-				printf("%c\n", map[i][j]);
 				ft_error("path error\n");
 			}
 			j++;

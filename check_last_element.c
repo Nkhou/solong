@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:34:19 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 10:34:30 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:58:53 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	check_last_element(char *map)
 	int i;
 
 	i = 0;
-	while (map[i])
+	i = ft_strnline(map);
+	if (map[i] == '\n')
 	{
-		if (map[i] == '\n')
-			ft_error("map error \n");
-		i++;
+		printf("*****%c*******\n", map[i]);
+		ft_error("map error \n");
 	}
 }
