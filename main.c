@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/29 13:34:21 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:04:00 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,19 @@ char **read_map(char *str, char **my_map)
 	my_map = copy_map(map, my_map);
 	return (my_map);
 }
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x *(data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
 int	main(int argc, char **argv)
 {
 	char	**my_map;
+	t_data 	img;
+	void	*mlx;
+	void	*mlx_win;
 	int		i;
 
 	my_map = NULL;
@@ -69,6 +79,13 @@ int	main(int argc, char **argv)
 		i = cmpt_line(my_map);
 		if (i > 0)
 			map_check(my_map, i);
+		mlx = mlx_init();
+		mlx_win = mlx_new_window(mlx, 1920, 1080, "hello world");
+		img.img = mlx_new_image(mlx, 1920, 1080);
+		img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+		my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+		mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+		mlx_loop(mlx);
 	}
 	return (0);
 }

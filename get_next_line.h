@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 15:34:45 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:32:12 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <fcntl.h>
 #include <stdio.h>
 #include <math.h>
-// #include <mlx.h>
+#include <mlx.h>
 
 typedef struct s_list
 {
@@ -37,6 +37,15 @@ typedef struct s_sizelist
 	int					content;
 	struct s_sizelist	*next;
 }	t_sizelist;
+
+typedef struct s_data
+{
+	void	*img;
+	char *addr;
+	int bits_per_pixel;
+	int	line_length;
+	int	endian;
+}	t_data;
 
 char	*get_next_line(int fd);
 char	*ft_strchr(char *s, int c);
