@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/05 20:56:46 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:33:28 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,38 @@ char **read_map(char *str, char **my_map)
 	my_map = copy_map(map, my_map);
 	return (my_map);
 }
-
-// void	move_player(int keycode, void *win_ptr, char **map)
-// {
-// 	printf("%d\n", keycode);
-// }
+void change_map(int keycode, char **my_map, int x, int y)
+{
+	
+}
+int	move_player(int keycode, t_map *my_map)
+{
+	(void)my_map;
+	if (keycode == 13)
+	{
+		change_map(keycode, my_map->map, my_map->pos_player_x + 1, my_map->pos_player_y);
+		printf("ana w\n");
+	}
+	else if (keycode == 0)
+	{
+		
+		change_map(keycode, my_map->map, my_map->pos_player_x , my_map->pos_player_y - 1);
+		printf("ana a\n");
+	}
+	else if (keycode == 1)
+	{
+		
+		change_map(keycode, my_map->map, my_map->pos_player_x - 1, my_map->pos_player_y);
+		printf("ana s\n");
+	}
+	else if (keycode == 2)
+	{
+		
+		change_map(keycode, my_map->map, my_map->pos_player_x , my_map->pos_player_y + 1);
+		printf("ana d\n");
+	}
+	return (0);
+}
 void addi(char my_map, t_map *map)
 {
 
@@ -104,7 +131,7 @@ void addi(char my_map, t_map *map)
 		
 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_col, map->y * h, map->x * w);
 	}
-	// mlx_key_hook(map->win_ptr,move_player, img_ptr_p);
+	mlx_key_hook(map->win_ptr,move_player, my_map);
 }
 
 void dispaly_image(char **map, int len, t_map *my_map)
@@ -187,38 +214,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-
-
-
-
-
-// int checkKeys(int key, char *t) {
-// 	printf("%d    %s\n", key,t);
-// 		if (key == 53)
-// 			exit(1);
-// 	return 0;
-// }
-// int main()
-// {
-//     void *mlx_ptr;
-//     void *win_ptr;
-//     void *img_ptr;
-//     int width = 2000;
-//     int height = 2000;
-
-//     // Initialize mlx
-//     mlx_ptr = mlx_init();
-
-//     // Create a window
-//     win_ptr = mlx_new_window(mlx_ptr, width, height, "My Window");
-
-//     // Load the image
-//     img_ptr = mlx_xpm_file_to_image(mlx_ptr, "img.xpm", &width, &height);
-// 	printf("%s\n", img_ptr);
-//     // Draw the image
-// 	mlx_hook(win_ptr,2,3, checkKeys, "");
-//     // Loop to keep the window open
-//     mlx_loop(mlx_ptr);
-
-//     return 0;
-// }
