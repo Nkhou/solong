@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/29 18:00:43 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:11:57 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,34 @@ typedef struct s_sizelist
 typedef struct s_data
 {
 	void	*img;
-	char *addr;
+	int *addr;
 	int bits_per_pixel;
 	int	line_length;
 	int	endian;
 }	t_data;
-
+typedef struct map
+{
+	int fd;
+	char **map;
+	int nbr_e;
+	int nbr_c;
+	int nbr_p;
+	int	win_wdth;
+	int	win_height;
+	int x;
+	int y;
+	int move;
+	int pos_player_x;
+	int pos_player_y;
+	void *mlx_ptr;
+	void *win_ptr;
+	void *img_ptr_p;
+   	void *img_ptr_w;
+   	void *img_ptr_pla;
+   	void *img_ptr_exit;
+   	void *img_ptr_col;
+	
+} t_map; 
 char	*get_next_line(int fd);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
