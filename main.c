@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/05 20:54:28 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:56:46 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,12 +164,12 @@ void put_images(t_map *map, int len)
 }
 int	main(int argc, char **argv)
 {
-	t_map *map_list;
+	t_map map_list;
 	char	**my_map;
 	int		i;
 
 	my_map = NULL;
-	map_list = NULL;
+	//map_list = NULL;
 	if (argc == 2)
 	{
 		my_map = read_map(argv[1], my_map);
@@ -177,8 +177,8 @@ int	main(int argc, char **argv)
 
 		if (i > 0)
 			map_check(my_map, i);
-		map_list->map = read_map(argv[1], map_list->map);
-		put_images(map_list, i);
+		map_list.map = read_map(argv[1], map_list.map);
+		put_images(&map_list, i);
 		// Create a window
 
 		// Load the image
