@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/05 19:11:57 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/06 12:48:40 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ typedef struct map
 	int nbr_e;
 	int nbr_c;
 	int nbr_p;
-	int	win_wdth;
-	int	win_height;
+  
 	int x;
 	int y;
 	int move;
+	int len;
 	int pos_player_x;
 	int pos_player_y;
 	void *mlx_ptr;
@@ -92,5 +92,4 @@ void check_path(char **map, int len);
 int cmpt_c(char **map, int len);
 void path(char **map, int len);
 void	map_check(char **map, int len);
-
 #endif

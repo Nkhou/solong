@@ -6,11 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/05 21:33:28 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/06 14:40:51 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+ int dispaly_imag(t_map *my_map);
+ int put_images(t_map *map);
 int cmpt_line(char **map)
 {
 	int	i;
@@ -58,34 +60,60 @@ char **read_map(char *str, char **my_map)
 	my_map = copy_map(map, my_map);
 	return (my_map);
 }
-void change_map(int keycode, char **my_map, int x, int y)
+int change_map(char **map, int x, int y, t_map *my_map)
 {
-	
+	if (map[x][y] != '1')
+	{
+		if (map[x][y] == 'E' && my_map->nbr_c == 0)
+		{
+			my_map->map[x][y] = 'P';
+			my_map->map[my_map->pos_player_x][my_map->pos_player_y] = '0';
+			my_map->nbr_c = my_map->nbr_c - 1;
+			mlx_destroy_window(my_map->mlx_ptr, my_map->win_ptr);
+			dispaly_imag(my_map);
+			put_images(my_map);
+		}
+		else if (my_map->map[x][y] == 'C')
+		{
+			my_map->map[x][y] = 'P';
+			my_map->map[my_map->pos_player_x][my_map->pos_player_y] = '0';
+			my_map->nbr_c = my_map->nbr_c - 1;
+			mlx_destroy_window(my_map->mlx_ptr, my_map->win_ptr);
+			put_images(my_map);
+		}
+		else if (map[x][y] == '0')
+		{
+			my_map->map[x][y] = 'P';
+			my_map->map[my_map->pos_player_x][my_map->pos_player_y] = '0';
+			mlx_clear_window(my_map->mlx_ptr, my_map->win_ptr);
+			put_images(my_map);
+		}
+	}
+	return (0);
 }
 int	move_player(int keycode, t_map *my_map)
 {
 	(void)my_map;
 	if (keycode == 13)
 	{
-		change_map(keycode, my_map->map, my_map->pos_player_x + 1, my_map->pos_player_y);
+		change_map(my_map->map, my_map->pos_player_x - 1, my_map->pos_player_y, my_map);
 		printf("ana w\n");
 	}
 	else if (keycode == 0)
 	{
 		
-		change_map(keycode, my_map->map, my_map->pos_player_x , my_map->pos_player_y - 1);
+		change_map(my_map->map, my_map->pos_player_x , my_map->pos_player_y - 1, my_map);
 		printf("ana a\n");
 	}
 	else if (keycode == 1)
 	{
 		
-		change_map(keycode, my_map->map, my_map->pos_player_x - 1, my_map->pos_player_y);
+		change_map(my_map->map, my_map->pos_player_x + 1, my_map->pos_player_y, my_map);
 		printf("ana s\n");
 	}
 	else if (keycode == 2)
 	{
-		
-		change_map(keycode, my_map->map, my_map->pos_player_x , my_map->pos_player_y + 1);
+		change_map(my_map->map, my_map->pos_player_x , my_map->pos_player_y + 1, my_map);
 		printf("ana d\n");
 	}
 	return (0);
@@ -106,7 +134,7 @@ void addi(char my_map, t_map *map)
 	if (my_map == 'P')
 	{
 		map->img_ptr_p = mlx_xpm_file_to_image(map->mlx_ptr, "super_mario.xpm", &w, &h);
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_p, map->y * h, map->x * w );
+		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_p, map->pos_player_y * h, map->pos_player_x * w );
 	}
 	if (my_map == 'E')
 	{
@@ -131,28 +159,29 @@ void addi(char my_map, t_map *map)
 		
 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_col, map->y * h, map->x * w);
 	}
-	mlx_key_hook(map->win_ptr,move_player, my_map);
+	mlx_key_hook(map->win_ptr,move_player, map);
 }
 
-void dispaly_image(char **map, int len, t_map *my_map)
+ int dispaly_imag(t_map *my_map)
 {
 	int i;
 	int j;
 	
 	i = 0;
-	while (map[i] && i < len)
+	while (my_map->map[i] && i < my_map->len)
 	{
 		j = 0;
-		while (map[i][j])
+		while (my_map->map[i][j])
 		{
 			my_map->x = i;
 			my_map->y = j;
-			addi(map[i][j], my_map);
+			addi(my_map->map[i][j], my_map);
 			j++;
 		}
 		i++;
 	}
 	mlx_loop(my_map->mlx_ptr);
+	return (0);
 }
 void find_player(char **map, int len, t_map *my_map)
 {
@@ -176,7 +205,7 @@ void find_player(char **map, int len, t_map *my_map)
 		i++;
 	}
 }
-void put_images(t_map *map, int len)
+int put_images(t_map *map)
 {
 	// void *mlx_ptr;
     // void *win_ptr;
@@ -186,8 +215,9 @@ void put_images(t_map *map, int len)
 	map->mlx_ptr = mlx_init();
 	map->win_ptr = mlx_new_window(map->mlx_ptr, width, height, "so_long");
 
-	find_player(map->map, len, map);
-	dispaly_image(map->map, len, map);
+	find_player(map->map, map->len, map);
+	dispaly_imag(map);
+	return (0);
 }
 int	main(int argc, char **argv)
 {
@@ -205,7 +235,10 @@ int	main(int argc, char **argv)
 		if (i > 0)
 			map_check(my_map, i);
 		map_list.map = read_map(argv[1], map_list.map);
-		put_images(&map_list, i);
+		map_list.nbr_c =cmpt_c(map_list.map, i);
+		map_list.len = i;
+		
+		put_images(&map_list);
 		// Create a window
 
 		// Load the image
