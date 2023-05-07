@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/07 16:50:31 by nkhoudro         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
  int dispaly_imag(t_map *my_map);
  int put_images(t_map *map);
@@ -147,46 +135,47 @@ int	move_player(int keycode, t_map *my_map)
 	}
 	return (0);
 }
-void addi(char my_map, t_map *map)
+void add_player()
 {
 
-	int h;
+}
+void addi(char my_map, t_map *map)
+{
 	int w;
 
-	h = 45;
 	w = 45;
 	if (my_map != '\n')
 	{
-		map->img_ptr_pla = mlx_xpm_file_to_image(map->mlx_ptr, "sur.xpm", &(map->width), &(map->height));
- 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_pla, map->y * (map->height), map->x *(map->width));
+		map->img_ptr_pla = mlx_xpm_file_to_image(map->mlx_ptr, "sur.xpm", &w, &(map->height));
+ 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_pla, map->y * (map->height), map->x * w);
 	}
 	if (my_map == 'P')
 	{
-		map->img_ptr_p = mlx_xpm_file_to_image(map->mlx_ptr, "super_mario.xpm", &(map->width), &(map->height));
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_p, map->pos_player_y *(map->height), map->pos_player_x *(map->width) );
+		map->img_ptr_p = mlx_xpm_file_to_image(map->mlx_ptr, "super_mario.xpm", &w, &(map->height));
+		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_p, map->pos_player_y * (map->height), map->pos_player_x * w );
 	}
 	if (my_map == 'E')
 	{
-		map->img_ptr_exit = mlx_xpm_file_to_image(map->mlx_ptr, "black-hol.xpm", &(map->width), &(map->height));
+		map->img_ptr_exit = mlx_xpm_file_to_image(map->mlx_ptr, "black-(map->height)ol.xpm", &w, &(map->height));
 		
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_exit,  map->y *(map->height), map->x *(map->width));
+		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_exit,  map->y * (map->height), map->x * w);
 	}
 	if (my_map == '1')
 	{
-		map->img_ptr_w = mlx_xpm_file_to_image(map->mlx_ptr, "wal.xpm", &(map->width), &(map->height));
+		map->img_ptr_w = mlx_xpm_file_to_image(map->mlx_ptr, "wal.xpm", &w, &(map->height));
 		
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_w, map->y *(map->height), map->x *(map->width));
+		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_w, map->y * (map->height), map->x * w);
 	}
 	if (my_map == '0')
 	{
-		map->img_ptr_pla = mlx_xpm_file_to_image(map->mlx_ptr, "sur.xpm", &(map->width), &(map->height));
- 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_pla, map->y *(map->height), map->x *(map->width));
+		map->img_ptr_pla = mlx_xpm_file_to_image(map->mlx_ptr, "sur.xpm", &w, &(map->height));
+ 		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_pla, map->y * (map->height), map->x * w);
 	}
 	if (my_map == 'C')
 	{
-		map->img_ptr_col = mlx_xpm_file_to_image(map->mlx_ptr, "treasure.xpm", &(map->width), &(map->height));
+		map->img_ptr_col = mlx_xpm_file_to_image(map->mlx_ptr, "treasure.xpm", &w, &(map->height));
 		
-		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_col, map->y *(map->height), map->x *(map->width));
+		mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr_col, map->y * (map->height), map->x * w);
 	}
 	mlx_key_hook(map->win_ptr,move_player, map);
 }
@@ -264,11 +253,10 @@ int	main(int argc, char **argv)
 		map_list.map = read_map(argv[1], map_list.map);
 		map_list.nbr_c =cmpt_c(map_list.map, i);
 		map_list.len = i;
-		map_list.move = 0;
 		map_list.width = 45;
 		map_list.height = 45;
+		map_list.move = 0;
 		put_images(&map_list);
 	}
 	return (0);
 }
-

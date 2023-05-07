@@ -24,6 +24,7 @@ SRC = \
 		check_path.c\
 		valide_path.c\
 		cmpt_c.c\
+		ft_lstclear.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
