@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/06 12:48:40 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/06 17:44:03 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ typedef struct map
 	int y;
 	int move;
 	int len;
+	int width;
+	int height;
 	int pos_player_x;
 	int pos_player_y;
+	int size;
 	void *mlx_ptr;
 	void *win_ptr;
 	void *img_ptr_p;
@@ -92,4 +95,5 @@ void check_path(char **map, int len);
 int cmpt_c(char **map, int len);
 void path(char **map, int len);
 void	map_check(char **map, int len);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
 #endif
