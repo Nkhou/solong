@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/07 14:56:50 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:40:36 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct map
 	int height;
 	int pos_player_x;
 	int pos_player_y;
+	int imp_pos;
 	int size;
 	void *mlx_ptr;
 	void *win_ptr;
@@ -96,4 +97,19 @@ int cmpt_c(char **map, int len);
 void path(char **map, int len);
 void	map_check(char **map, int len);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
+int put_images(t_map *map);
+void end_game(t_map *my_map);
+ int dispaly_imag(t_map *my_map);
+ int cmpt_line(char **map);
+ char	**copy_map(t_list *map, char **my_map);
+ char **read_map(char *str, char **my_map);
+ int change_map(char **map, int x, int y, t_map *my_map);
+ int	move_player(int keycode, t_map *my_map);
+ void add_player(t_map *map);
+ void	add_earth(t_map *map);
+ void	add_exit(t_map *map);
+ void	add_wall(t_map *map);
+ void	add_collectable(t_map *map);
+ void find_player(char **map, int len, t_map *my_map);
+ void addi(char my_map, t_map *map);
 #endif

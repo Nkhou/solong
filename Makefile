@@ -1,6 +1,6 @@
 CC = cc
 NAME = so_long
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 SRC = \
 		main.c\
 		ft_lstadd_back.c\
@@ -25,6 +25,16 @@ SRC = \
 		valide_path.c\
 		cmpt_c.c\
 		ft_lstclear.c\
+		put_image.c\
+		end_game.c\
+		cmpt_line.c\
+		copy_map.c\
+		read_map.c\
+		change_map.c\
+		move_player.c\
+		add_image.c\
+		find_player.c\
+
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
