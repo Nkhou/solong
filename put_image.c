@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:15:51 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 14:36:26 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:57:07 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int put_images(t_map *map)
 	map->win_ptr = mlx_new_window(map->mlx_ptr, width, height, "so_long");
 	find_player(map->map, map->len, map);
 	dispaly_imag(map);
-	mlx_loop(map->mlx_ptr);
 	return (0);
 }

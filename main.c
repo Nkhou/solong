@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 16:52:44 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 19:39:16 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,22 @@ void addi(char my_map, t_map *map)
 	if (my_map == '1')
 		add_wall(map);
 }
-
+// void distroy(t_map *my_map)
+// {
+// 	mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_w);
+// 	mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_col);
+// 	mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_exit);
+// 	mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_pla);
+// 	mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_p);
+// 	// mlx_clear_window(my_map->mlx_ptr, my_map->win_ptr);
+// }
 int dispaly_imag(t_map *my_map)
 {
 	int i;
 	int j;
 	
 	i = 0;
+	// mlx_clear_window(my_map->mlx_ptr, my_map->win_ptr);
 	while (my_map->map[i] && i < my_map->len)
 	{
 		j = 0;
@@ -50,6 +59,12 @@ int dispaly_imag(t_map *my_map)
 	mlx_key_hook(my_map->win_ptr,move_player, my_map);
 	return (0);
 }
+// int image_loop(t_map *my_map)
+// {
+// 	mlx_loop_hook(my_map->win_ptr,dispaly_imag, my_map);
+// 	// mlx_hook(my_map->win_ptr,2,1L,&move_player, my_map);
+// 	return (0);
+// }
 void tt(void)
 {
 	system("leaks so_long");
@@ -75,6 +90,8 @@ int	main(int argc, char **argv)
 		map_list.height = 45;
 		map_list.imp_pos = 0;
 		put_images(&map_list);
+		// image_loop(&map_list);
+		mlx_loop(map_list.mlx_ptr);
 	}
 	return (0);
 }
