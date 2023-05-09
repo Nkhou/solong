@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:46:02 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 10:46:30 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:56:45 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,5 @@ void path(char **map, int len)
 	valide_path(p, i, j, c);
 	check_path(p, len);
 }
+
+

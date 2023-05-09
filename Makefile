@@ -34,7 +34,7 @@ SRC = \
 		move_player.c\
 		add_image.c\
 		find_player.c\
-
+		newone.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)

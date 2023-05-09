@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 16:50:30 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:52:44 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void addi(char my_map, t_map *map)
 {
+	// mlx_clear_window(map->mlx_ptr, map->win_ptr);
+	if (my_map == '0')
+		add_earth(map);
 	if (my_map != '\n')
 		add_earth(map);
 	if (my_map == 'P')
 		add_player(map);
 	if (my_map == 'E')
 		add_exit(map);
-	if (my_map == '1')
-		add_wall(map);
-	if (my_map == '0')
-		add_earth(map);
 	if (my_map == 'C')
 		add_collectable(map);
-	mlx_key_hook(map->win_ptr,move_player, map);
+	if (my_map == '1')
+		add_wall(map);
 }
 
 int dispaly_imag(t_map *my_map)
@@ -35,7 +35,6 @@ int dispaly_imag(t_map *my_map)
 	int j;
 	
 	i = 0;
-	find_player(my_map->map, my_map->len, my_map);
 	while (my_map->map[i] && i < my_map->len)
 	{
 		j = 0;
@@ -48,15 +47,19 @@ int dispaly_imag(t_map *my_map)
 		}
 		i++;
 	}
+	mlx_key_hook(my_map->win_ptr,move_player, my_map);
 	return (0);
 }
-
+void tt(void)
+{
+	system("leaks so_long");
+}
 int	main(int argc, char **argv)
 {
+	// atexit(tt);
 	t_map map_list;
 	char	**my_map;
 	int		i;
-
 	my_map = NULL;
 	if (argc == 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 16:40:36 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:06:50 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,5 @@ void end_game(t_map *my_map);
  void	add_collectable(t_map *map);
  void find_player(char **map, int len, t_map *my_map);
  void addi(char my_map, t_map *map);
+ int newone(t_map *my_map);
 #endif

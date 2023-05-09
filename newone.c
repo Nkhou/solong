@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_image.c                                        :+:      :+:    :+:   */
+/*   newone.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 15:15:51 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 14:36:26 by nkhoudro         ###   ########.fr       */
+/*   Created: 2023/05/09 16:00:41 by nkhoudro          #+#    #+#             */
+/*   Updated: 2023/05/09 17:05:36 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int put_images(t_map *map)
+int newone(t_map *my_map)
 {
-	int width;
-	int height;
-
-	width = map->width * ft_strnline(map->map[0]);
-	height = map->height * map->len;
-	map->mlx_ptr = mlx_init();
-	map->win_ptr = mlx_new_window(map->mlx_ptr, width, height, "so_long");
-	find_player(map->map, map->len, map);
-	dispaly_imag(map);
-	mlx_loop(map->mlx_ptr);
-	return (0);
+    my_map->map[my_map->pos_player_x][my_map->pos_player_y] = '0';
+    addi(my_map->map[my_map->pos_player_x][my_map->pos_player_y], my_map);
+    my_map->map[my_map->pos_player_x][my_map->pos_player_y] = 'P';
+    addi(my_map->map[my_map->pos_player_x][my_map->pos_player_y], my_map);
+    addi(my_map->map[my_map->x][my_map->y], my_map);
+    return (0);
 }
