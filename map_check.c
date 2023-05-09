@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:47:17 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 15:38:23 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/09 21:55:03 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void wal(char **map, int len)
 		while (map[i][j] && map[i][j] != '\n')
 		{
 			if(map[0][j] != '1')
-				ft_error("////no wall\n");
+				ft_error("Error: \n no wall\n");
 			if(map[len - 1][j] != '1')
-				ft_error("////no wall\n");
+				ft_error("Error: \n /no wall\n");
 			if(map[0][0] != '1')
-				ft_error("***no wall\n");
+				ft_error("Error: \n no wall\n");
 			if(map[i][ft_strnline(map[i]) - 1] != '1')
-				ft_error("---no wall%c\n");
+				ft_error("Error: \n no wall%c\n");
 			j++;
 		}
 		i++;

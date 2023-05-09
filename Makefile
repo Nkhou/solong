@@ -35,13 +35,15 @@ SRC = \
 		add_image.c\
 		find_player.c\
 		newone.c\
+		ft_putnbr.c\
+		ft_putchar.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
-$(NAME) : $(OBJCTS)
-		$(CC) -lmlx -framework OpenGL -framework AppKit $^ -o $@ -fsanitize=address
-%.o: %.c get_next_line.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME) : $(OBJCTS) 
+		$(CC) -lmlx -framework OpenGL -framework AppKit $^ -o $@ -fsanitize=address 
+%.o: %.c get_next_line.h 
+	$(CC) $(CFLAGS) -c $< -o $@ 
 clean:
 	rm -f $(OBJCTS)
 

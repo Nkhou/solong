@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_last_element.c                               :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 10:34:19 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 21:46:27 by nkhoudro         ###   ########.fr       */
+/*   Created: 2023/05/09 21:40:38 by nkhoudro          #+#    #+#             */
+/*   Updated: 2023/05/09 21:41:03 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	check_last_element(char *map)
+void	ft_putchar_fd(char c, int fd)
 {
-	int i;
-
-	i = 0;
-	i = ft_strnline(map);
-	if (map[i] == '\n')
-		ft_error("Error : no wall in map \n");
+	write (fd, &c, 1);
 }
