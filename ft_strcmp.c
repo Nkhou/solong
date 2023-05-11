@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/27 13:31:25 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:22:13 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strncmp(char *s1, char s2)
 {
 	unsigned char	*my_s1;
-	int			i;
+	int				i;
 
 	i = 0;
 	my_s1 = (unsigned char *)s1;

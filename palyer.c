@@ -6,22 +6,22 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:38:34 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 10:38:47 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:54:04 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void check_players(char **map, int len)
+void	check_players(char **map, int len)
 {
 	int	i;
-	int k;
+	int	k;
 	int	j;
 
 	i = 0;
 	j = 0;
 	k = 0;
-	while(i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (map[i][j])

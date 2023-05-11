@@ -6,16 +6,16 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:15:51 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 18:57:07 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:08:55 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int put_images(t_map *map)
+int	put_images(t_map *map)
 {
-	int width;
-	int height;
+	int	width;
+	int	height;
 
 	width = map->width * ft_strnline(map->map[0]);
 	height = map->height * map->len;

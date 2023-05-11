@@ -6,13 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:16:47 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 16:33:41 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:20:48 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void end_game(t_map *my_map)
+void	end_game(t_map *my_map)
 {
 	int	i;
 
@@ -25,11 +25,11 @@ void end_game(t_map *my_map)
 			i++;
 		}
 		free(my_map->map);
-		mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_w);
-		mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_col);
-		mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_exit);
-		mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_pla);
-		mlx_destroy_image(my_map->mlx_ptr,my_map->img_ptr_p);
+		mlx_destroy_image(my_map->mlx_ptr, my_map->img_ptr_w);
+		mlx_destroy_image(my_map->mlx_ptr, my_map->img_ptr_col);
+		mlx_destroy_image(my_map->mlx_ptr, my_map->img_ptr_exit);
+		mlx_destroy_image(my_map->mlx_ptr, my_map->img_ptr_pla);
+		mlx_destroy_image(my_map->mlx_ptr, my_map->img_ptr_p);
 		mlx_clear_window(my_map->mlx_ptr, my_map->win_ptr);
 		mlx_destroy_window(my_map->mlx_ptr, my_map->win_ptr);
 	}

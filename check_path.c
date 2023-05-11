@@ -6,19 +6,19 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:43:18 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/29 18:07:38 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:18:51 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void check_path(char **map, int len)
+void	check_path(char **map, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (map[i][j])

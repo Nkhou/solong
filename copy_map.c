@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:20:19 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 15:20:21 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:20:58 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	**copy_map(t_list *map, char **my_map)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	i = 0;
 	len = ft_lstsize(map) * ft_strnline(map->content);
-	my_map = (char **)malloc(sizeof(char *)*(len + 1));
+	my_map = (char **) malloc(sizeof(char *) * (len + 1));
 	while (map)
 	{
 		my_map[i] = ft_strdup(map->content);
@@ -27,5 +27,5 @@ char	**copy_map(t_list *map, char **my_map)
 		i++;
 	}
 	my_map[i] = NULL;
-	return(my_map);
+	return (my_map);
 }

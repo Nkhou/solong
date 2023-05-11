@@ -6,17 +6,18 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:21:04 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/08 15:21:16 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:09:04 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char **read_map(char *str, char **my_map)
+char	**read_map(char *str, char **my_map)
 {
 	char	*ma1;
 	t_list	*map;
-	int	fd;
+	int		fd;
+
 	map = NULL;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)

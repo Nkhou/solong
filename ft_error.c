@@ -6,13 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:32:34 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/04/28 10:32:45 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:21:26 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void ft_error(char *str)
+void	ft_error(char *str)
 {
 	ft_putstr_fd(str, 2);
 	exit(1);

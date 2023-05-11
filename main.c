@@ -6,13 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/09 21:55:18 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:07:56 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void addi(char my_map, t_map *map)
+void	addi(char my_map, t_map *map)
 {
 	if (my_map == '0')
 		add_earth(map);
@@ -27,11 +27,12 @@ void addi(char my_map, t_map *map)
 	if (my_map == '1')
 		add_wall(map);
 }
-int dispaly_imag(t_map *my_map)
+
+int	dispaly_imag(t_map *my_map)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (my_map->map[i] && i < my_map->len)
 	{
@@ -45,24 +46,22 @@ int dispaly_imag(t_map *my_map)
 		}
 		i++;
 	}
-	mlx_key_hook(my_map->win_ptr,move_player, my_map);
+	mlx_key_hook(my_map->win_ptr, move_player, my_map);
 	return (0);
 }
-int image_loop(t_map *my_map)
+
+int	image_loop(t_map *my_map)
 {
-	mlx_loop_hook(my_map->win_ptr,dispaly_imag, my_map);
+	mlx_loop_hook(my_map->win_ptr, dispaly_imag, my_map);
 	return (0);
 }
-void tt(void)
-{
-	system("leaks so_long");
-}
+
 int	main(int argc, char **argv)
 {
-	atexit(tt);
-	t_map map_list;
+	t_map	map_list;
 	char	**my_map;
 	int		i;
+
 	my_map = NULL;
 	if (argc == 2)
 	{
@@ -71,7 +70,7 @@ int	main(int argc, char **argv)
 		if (i > 0)
 			map_check(my_map, i);
 		map_list.map = read_map(argv[1], map_list.map);
-		map_list.nbr_c =cmpt_c(map_list.map, i);
+		map_list.nbr_c = cmpt_c(map_list.map, i);
 		map_list.len = i;
 		map_list.move = 0;
 		map_list.width = 45;
