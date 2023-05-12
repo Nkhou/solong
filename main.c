@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 16:07:56 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:57:27 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ int	dispaly_imag(t_map *my_map)
 	return (0);
 }
 
-int	image_loop(t_map *my_map)
-{
-	mlx_loop_hook(my_map->win_ptr, dispaly_imag, my_map);
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	t_map	map_list;
@@ -63,14 +57,15 @@ int	main(int argc, char **argv)
 	int		i;
 
 	my_map = NULL;
-	if (argc == 2)
+	if (argc == 2 && (ft_strrchr(argv[1], ".ber") != 0))
 	{
 		my_map = read_map(argv[1], my_map);
-		i = cmpt_line(my_map);
-		if (i > 0)
-			map_check(my_map, i);
 		map_list.map = read_map(argv[1], map_list.map);
-		map_list.nbr_c = cmpt_c(map_list.map, i);
+		i = cmpt_line(map_list.map);
+		if (i > 0)
+			map_check(map_list, i);
+		map_list.map = my_map;
+		map_list.nbr_c = cmpt_c(map_list, i);
 		map_list.len = i;
 		map_list.move = 0;
 		map_list.width = 45;
@@ -79,5 +74,7 @@ int	main(int argc, char **argv)
 		put_images(&map_list);
 		mlx_loop(map_list.mlx_ptr);
 	}
+	else
+		ft_error("Error in input\n");
 	return (0);
 }

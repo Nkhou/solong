@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:21:04 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 16:09:04 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:10:21 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**read_map(char *str, char **my_map)
 	map = NULL;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		ft_error("Error : map not exist\n");
 	while (1)
 	{
 		ma1 = get_next_line(fd);

@@ -6,35 +6,34 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:46:02 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:55:17 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 11:29:29 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	path(char **map, int len)
+void	path(t_map my_map, int len)
 {
-	char	**p;
 	int		i;
 	int		j;
 	int		c;
 
 	i = 0;
-	p = map;
 	while (i < len)
 	{
 		j = 0;
-		while (map[i][j])
+		while (my_map.map[i][j])
 		{
-			if (map[i][j] == 'P')
+			if (my_map.map[i][j] == 'P')
 				break ;
 			j++;
 		}
-		if (map[i][j] == 'P')
+		if (my_map.map[i][j] == 'P')
 			break ;
 		i++;
 	}
-	c = cmpt_c(map, len);
-	valide_path(p, i, j, c);
-	check_path(p, len);
+	c = cmpt_c(my_map, len);
+	valide_path(my_map, i, j, c);
+	check_path(my_map, len);
+	i = 0;
 }

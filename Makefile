@@ -37,6 +37,7 @@ SRC = \
 		newone.c\
 		ft_putnbr.c\
 		ft_putchar.c\
+		ft_findstring.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)

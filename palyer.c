@@ -6,13 +6,13 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:38:34 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:54:04 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 11:05:36 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	check_players(char **map, int len)
+void	check_players(t_map my_map, int len)
 {
 	int	i;
 	int	k;
@@ -24,9 +24,9 @@ void	check_players(char **map, int len)
 	while (i < len)
 	{
 		j = 0;
-		while (map[i][j])
+		while (my_map.map[i][j])
 		{
-			if (map[i][j] == 'P')
+			if (my_map.map[i][j] == 'P')
 				k++;
 			j++;
 		}

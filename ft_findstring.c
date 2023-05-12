@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collectible.c                                      :+:      :+:    :+:   */
+/*   ft_findstring.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 10:40:48 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 11:07:12 by nkhoudro         ###   ########.fr       */
+/*   Created: 2023/05/12 16:39:04 by nkhoudro          #+#    #+#             */
+/*   Updated: 2023/05/12 17:04:10 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	check_collectible(t_map my_map, int len)
+int	find_point(char *s)
 {
 	int	i;
-	int	k;
-	int	j;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (my_map.map[i][j])
-		{
-			if (my_map.map[i][j] == 'C')
-				k++;
-			j++;
-		}
+	if (!s[i])
+		return (0);
+	while (s[i] && s[i] != '.')
 		i++;
+	return (i);
+}
+
+int	ft_strrchr(char *s, char *c)
+{
+	int		i;
+	int		j;
+
+	i = find_point(s);
+	j = find_point(c);
+	while (s[i] && c[j])
+	{
+		if (s[i] != c[j])
+			return (0);
+		i++;
+		j++;
 	}
-	if (k < 1)
-		ft_error("collectible error\n");
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:22:11 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 16:06:21 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 14:12:36 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ int	change_map(char **map, int x, int y, t_map *my_map)
 			end_game(my_map);
 		}
 		else if (map[x][y] != 'E')
+	{
 			pos_player(x, y, my_map);
 		ft_putstr_fd("number of moving :", 1);
 		ft_putnbr_fd(my_map->move, 1);
 		ft_putstr_fd("\n", 1);
+	}
 		newone(my_map);
 	}
 	return (0);

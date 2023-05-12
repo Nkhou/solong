@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:27:43 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:47:28 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@ int		ft_strncmp(char *s1, char s2);
 void	ft_error(char *str);
 void	check_last_element(char *map);
 void	check_map(t_list *map);
-void	check_players(char **map, int len);
-void	check_collectible(char **map, int len);
+void	check_players(t_map my_map, int len);
+void	check_collectible(t_map my_map, int len);
 void	check_element_of_map(char **map, int len);
-void	valide_path(char **map, int i, int j, int c);
-void	check_path(char **map, int len);
-int		cmpt_c(char **map, int len);
-void	path(char **map, int len);
-void	map_check(char **map, int len);
+void	valide_path(t_map my_map, int i, int j, int c);
+void	check_path(t_map my_map, int len);
+int		cmpt_c(t_map my_map, int len);
+void	path(t_map my_map, int len);
+void	map_check(t_map map, int len);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 int		put_images(t_map *map);
 void	end_game(t_map *my_map);
@@ -113,4 +113,5 @@ int		newone(t_map *my_map);
 int		ajou_player(t_map *my_map);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
+int		ft_strrchr(char *s, char *c);
 #endif
