@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:20:19 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:20:58 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 char	**copy_map(t_list *map, char **my_map)
 {

@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 13:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:22:13 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 int	ft_strncmp(char *s1, char s2)
 {

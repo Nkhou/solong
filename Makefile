@@ -43,7 +43,7 @@ OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
 $(NAME) : $(OBJCTS) 
 		$(CC) -lmlx -framework OpenGL -framework AppKit $^ -o $@ -fsanitize=address 
-%.o: %.c get_next_line.h 
+%.o: %.c so_long.h
 	$(CC) $(CFLAGS) -c $< -o $@ 
 clean:
 	rm -f $(OBJCTS)

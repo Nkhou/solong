@@ -6,17 +6,19 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:19:12 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 14:35:55 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 int	cmpt_line(char **map)
 {
 	int	i;
 
 	i = 0;
+	if (!map)
+		return (0);
 	while (map[i])
 		i++;
 	return (i);

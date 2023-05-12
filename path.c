@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:46:02 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 11:29:29 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	path(t_map my_map, int len)
 {

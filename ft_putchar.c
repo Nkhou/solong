@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 21:40:38 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:21:55 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

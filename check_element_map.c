@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:41:22 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/11 15:18:21 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	check_element_of_map(char **map, int len)
 {
@@ -28,7 +28,7 @@ void	check_element_of_map(char **map, int len)
 				&& (map[i][j] != '1') && (map[i][j] != '0')
 					&& (map[i][j] != '\n'))
 			{
-				ft_error("map error\n");
+				ft_error("Error: map error\n");
 			}
 			j++;
 		}

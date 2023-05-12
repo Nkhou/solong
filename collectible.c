@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:40:48 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 11:07:12 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	check_collectible(t_map my_map, int len)
 {
@@ -33,5 +33,5 @@ void	check_collectible(t_map my_map, int len)
 		i++;
 	}
 	if (k < 1)
-		ft_error("collectible error\n");
+		ft_error("Error: collectible error\n");
 }

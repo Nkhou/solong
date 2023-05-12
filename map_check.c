@@ -6,11 +6,11 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:47:17 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 15:20:06 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "so_long.h"
 
 void	wal(t_map my_map, int len)
 {
@@ -59,7 +59,7 @@ void check_exit(t_map my_map, int len)
 		i++;
 	}
 	if (k != 1)
-		ft_error("exit error\n");
+		ft_error("Error: exit error\n");
 }
 void	map_check(t_map map, int len)
 {
