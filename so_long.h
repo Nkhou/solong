@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 17:31:18 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/14 18:10:33 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,10 @@ int		ajou_player(t_map *my_map);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 int		ft_strrchr(char *s, char *c);
+void	ft_puts(t_map *map);
+void	insial_wall(t_map *map);
+void	insial_player(t_map *map);
+void	insial_exit(t_map *map);
+void	insial_earth(t_map *map);
+void	insial_colectebal(t_map *map);
 #endif

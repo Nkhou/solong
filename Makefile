@@ -38,6 +38,7 @@ SRC = \
 		ft_putnbr.c\
 		ft_putchar.c\
 		ft_findstring.c\
+		inistial_image.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
