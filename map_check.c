@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:47:17 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/14 18:06:22 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/15 19:10:51 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	wal(t_map my_map, int len)
 		while (my_map.map[i][j] && my_map.map[i][j] != '\n')
 		{
 			if (my_map.map[0][j] != '1')
-				ft_error("Error: \n no wall\n");
+				ft_error("Error:\n no wall\n");
 			if (my_map.map[len - 1][j] != '1')
-				ft_error("Error: \n /no wall\n");
+				ft_error("Error:\n /no wall\n");
 			if (my_map.map[0][0] != '1')
-				ft_error("Error: \n no wall\n");
+				ft_error("Error:\n no wall\n");
 			if (my_map.map[i][ft_strnline(my_map.map[i]) - 1] != '1')
-				ft_error("Error: \n no wall%c\n");
+				ft_error("Error:\n no wall\n");
 			j++;
 		}
 		i++;
@@ -69,4 +69,5 @@ void	map_check(t_map map, int len)
 	check_collectible(map, len);
 	check_exit(map, len);
 	path(map, len);
+	// free(map.map);
 }

@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/14 18:10:33 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:01:41 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,5 @@ void	insial_player(t_map *map);
 void	insial_exit(t_map *map);
 void	insial_earth(t_map *map);
 void	insial_colectebal(t_map *map);
+int		exit_map(void);
 #endif

@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:16:47 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:37:32 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	end_game(t_map *my_map)
 		mlx_clear_window(my_map->mlx_ptr, my_map->win_ptr);
 		mlx_destroy_window(my_map->mlx_ptr, my_map->win_ptr);
 	}
-	free(my_map->mlx_ptr);
-	exit(0);
+	exit(1);
 }

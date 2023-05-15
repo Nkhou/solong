@@ -1,6 +1,6 @@
 CC = cc
 NAME = so_long
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
 SRC = \
 		main.c\
 		ft_lstadd_back.c\
@@ -43,7 +43,7 @@ SRC = \
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
 $(NAME) : $(OBJCTS) 
-		$(CC) -lmlx -framework OpenGL -framework AppKit $^ -o $@ -fsanitize=address 
+		$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit $^ -o $@
 %.o: %.c so_long.h
 	$(CC) $(CFLAGS) -c $< -o $@ 
 clean:

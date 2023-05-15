@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:21:04 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/15 21:59:39 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	**read_map(char *str, char **my_map)
 			break ;
 		ft_lstadd_back(&map, ft_lstnew(ma1));
 	}
+	// free(ma1);
 	close(fd);
 	check_map(map);
 	my_map = copy_map(map, my_map);

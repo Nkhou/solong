@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:27:26 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/14 18:05:48 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:01:26 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,40 @@ int	dispaly_imag(t_map *my_map)
 	return (0);
 }
 
+void my()
+{
+	system("leaks so_long");
+}
+
 int	main(int argc, char **argv)
 {
 	t_map	map_list;
 	char	**my_map;
-	int		i;
 
 	my_map = NULL;
+	atexit(my);
 	if (argc == 2 && (ft_strrchr(argv[1], ".ber") != 0))
 	{
 		my_map = read_map(argv[1], my_map);
 		map_list.map = read_map(argv[1], map_list.map);
-		i = cmpt_line(map_list.map);
-		if (i > 0)
-			map_check(map_list, i);
+		map_list.len = cmpt_line(map_list.map);
+		if (map_list.len > 0)
+			map_check(map_list, map_list.len);
+			int i = 0;
+		while (map_list.map[i])
+		{
+			free(map_list.map[i]);
+			i++;
+		}
+		free(map_list.map);
 		map_list.map = my_map;
-		map_list.nbr_c = cmpt_c(map_list, i);
-		map_list.len = i;
+		map_list.nbr_c = cmpt_c(map_list, map_list.len);
 		map_list.move = 0;
 		map_list.width = 45;
 		map_list.height = 45;
 		map_list.imp_pos = 0;
 		put_images(&map_list);
+		mlx_hook(map_list.win_ptr, 17, 0, exit_map, NULL);
 		mlx_loop(map_list.mlx_ptr);
 	}
 	else
