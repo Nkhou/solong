@@ -6,11 +6,20 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 10:47:17 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/15 19:10:51 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:05:55 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_protect(t_map my_map)
+{
+	int	len;
+
+	len = ft_strlen(my_map.map[0]);
+	if (len * 45 > 2880  || my_map.len * 45 > 1550)
+		ft_error("Error :size map\n");
+}
 
 void	wal(t_map my_map, int len)
 {
@@ -68,6 +77,6 @@ void	map_check(t_map map, int len)
 	check_players(map, len);
 	check_collectible(map, len);
 	check_exit(map, len);
+	ft_protect(map);
 	path(map, len);
-	// free(map.map);
 }

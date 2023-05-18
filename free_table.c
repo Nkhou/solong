@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   free_table.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 15:21:04 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/17 20:15:19 by nkhoudro         ###   ########.fr       */
+/*   Created: 2023/05/17 20:06:59 by nkhoudro          #+#    #+#             */
+/*   Updated: 2023/05/17 20:13:35 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(char *str, char **my_map)
+void	frre_table(char **map)
 {
-	char	*ma1;
-	t_list	*map;
-	int		fd;
+	int	i;
 
-	map = NULL;
-	fd = open(str, O_RDONLY);
-	if (fd == -1)
-		ft_error("Error : map not exist\n");
-	while (1)
+	i = 0;
+	while (map[i])
 	{
-		ma1 = get_next_line(fd);
-		if (!ma1)
-			break ;
-		ft_lstadd_back(&map, ft_lstnew(ma1));
+		free(map[i]);
+		i++;
 	}
-	close(fd);
-	check_map(map);
-	my_map = copy_map(map, my_map);
-	ft_lstclear(&map, free);
-	return (my_map);
+	free(map);
 }

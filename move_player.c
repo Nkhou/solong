@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:23:10 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/15 19:10:20 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/17 20:04:40 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	move_player(int keycode, t_map *my_map)
 	else if (keycode == 2 || keycode == 124)
 		mv_pl(my_map->pos_player_x,
 			my_map->pos_player_y + 1, my_map, 3);
-	else if (keycode == 53 || keycode == 12)
+	else if (keycode == 53)
 		end_game(my_map);
 	return (0);
 }

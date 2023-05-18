@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/15 22:01:41 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:07:03 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,6 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct s_sizelist
-{
-	int					content;
-	struct s_sizelist	*next;
-}	t_sizelist;
-
-typedef struct s_data
-{
-	void	*img;
-	int		*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
 typedef struct map
 {
 	int		fd;
@@ -121,4 +107,5 @@ void	insial_exit(t_map *map);
 void	insial_earth(t_map *map);
 void	insial_colectebal(t_map *map);
 int		exit_map(void);
+void	frre_table(char **map);
 #endif

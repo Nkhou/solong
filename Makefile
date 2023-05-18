@@ -39,6 +39,7 @@ SRC = \
 		ft_putchar.c\
 		ft_findstring.c\
 		inistial_image.c\
+		free_table.c\
 	
 OBJCTS = $(SRC:.c=.o)
 all : $(NAME)
@@ -46,6 +47,7 @@ $(NAME) : $(OBJCTS)
 		$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit $^ -o $@
 %.o: %.c so_long.h
 	$(CC) $(CFLAGS) -c $< -o $@ 
+	
 clean:
 	rm -f $(OBJCTS)
 
