@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:45:27 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/18 15:07:03 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/21 18:39:19 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef struct s_list
 {
-	void			*content;
+	char			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -62,7 +62,7 @@ char	*ft_strjoin(char *s1, char *s2);
 int		ft_strlen( char *s);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(char *content);
 int		ft_lstsize(t_list *lst);
 char	*ft_strdup(char *s1);
 int		ft_strnline( char *s);

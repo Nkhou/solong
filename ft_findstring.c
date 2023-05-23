@@ -6,7 +6,7 @@
 /*   By: nkhoudro <nkhoudro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 16:39:04 by nkhoudro          #+#    #+#             */
-/*   Updated: 2023/05/12 17:32:02 by nkhoudro         ###   ########.fr       */
+/*   Updated: 2023/05/21 18:27:20 by nkhoudro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ int	find_point(char *s)
 	i = 0;
 	if (!s[i])
 		return (0);
-	while (s[i] && s[i] != '.')
+	while (s[i])
+	{
+		if (s[i] == '.')
+			return (i);
 		i++;
+	}
+	ft_error("Error input\n");
 	return (i);
 }
 
